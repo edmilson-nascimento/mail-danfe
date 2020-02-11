@@ -130,8 +130,7 @@ if ( it_nfe[] is not initial ) .
         att_content_hex    = att_content_hex
     ).
 
-    mail->send( recipient = 'edmilson.nascimento@litsolutions.com.br' ) .
-*   mail->send( recipient = 'tiago.barbosa@agrex.com.br' ) .
+    mail->send( recipient = 'nascimento@abapconsulting.com.br' ) .
 
 
     free nast.
