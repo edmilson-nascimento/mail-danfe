@@ -10,3 +10,23 @@ Para que seja feito isso de forma a aproveitar os recursos, de acordo como são 
 
 ## Solução proposta ##
 As rotinas que hoje existem para chamada do `Smartforms` não foram alteradas ~~porque eu não sou obrigado fazer melhorias que estão fora do escope que estou atuando~~ para que não houvessem impactos em outras áreas. Algumas mensagens de tela, pode ser problema. Isso reforça uma nota que, as mensagens e log's devem ser tratados para execuções _online_ (o usuário executando e aguardando o resultado) e também devem ser tratadas quando há execuções em _background_. Envio do DANFE, em um arquivo PDF por e-mail.
+
+### Informaćoes importantes ##
+Eu tentei encapsular a soluçao toda em uma classe criada na `SE24` mas por alguma limitacao da linguagem ou outro motivo ~~~ja que tudo é pra ontem, as vezes falta tempo de criar a melhor solucao~~, foi feito com uma classe local dentro de um report para que sejam alimentadas as informacoes da Tabela `NAST` *[Status da mensagem]*, conforme trecho abaixo.
+
+```abap
+    free nast .
+    nast-kappl = tnapr_line-kappl . " Aplicação para condições de mensagens
+    nast-objky = doc_line-docnum .  " Chave de objeto
+    nast-kschl = tnapr_line-kschl . " Tipo de mensagem
+    nast-spras = sy-langu .         " Idioma da mensagem
+    nast-erdat = sy-datum .         " Data da criação do registro de status
+    nast-eruhr = sy-uzeit .         " Status da mensagem
+    nast-nacha = 1 . " Meio de transmissão de uma mensagem (1	Saída de impressão)
+    nast-anzal = 1 . " Nº de mensagens (original + cópias)
+    nast-vsztp = 1 . " Momento do envio (1  Enviar através de jobs escalonados periodicamente)
+    nast-nauto = abap_on . " Mensagem determinada através das condições
+
+    nast-dimme = abap_on . " Saída imediata
+    nast-ldest = 'ZPDF' . " Spool: dispositivo de saída (valor temporariamente fixo)
+```
