@@ -1,8 +1,5 @@
 report zmm_mail .
 
-
-
-
 parameters:
   p_docnum type j_1bnfdoc-docnum obligatory .
 
