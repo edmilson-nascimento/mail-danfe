@@ -63,18 +63,32 @@ if ( doc_line is not initial ) .
 *   Converte smartform OTF to PDF
     call function 'CONVERT_OTF'
       exporting
-        format                = 'PDF'
+        format                      = 'PDF'
+*       max_linewidth               = 132
+*       archive_index               = ' '
+*       copynumber                  = 0
+*       ascii_bidi_vis2log          = ' '
+*       pdf_delete_otftab           = ' '
+*       pdf_username                = ' '
+*       pdf_preview                 = ' '
+*       use_cascading               = ' '
+*       modified_param_table        =
       importing
-        bin_file              = wa_pdf_string_x
+*       bin_filesize                =
+        bin_file                    = wa_pdf_string_x
       tables
-        otf                   = it_job_output_info-otfdata
-        lines                 = it_lines
+        otf                         = it_job_output_info-otfdata
+        lines                       = it_lines
       exceptions
-        err_max_linewidth     = 1
-        err_format            = 2
-        err_conv_not_possible = 3
-        err_bad_otf           = 4
-        others                = 5.
+        err_max_linewidth           = 1
+        err_format                  = 2
+        err_conv_not_possible       = 3
+        err_bad_otf                 = 4
+        others                      = 5 .
+
+    if ( sy-subrc eq 0 ) .
+
+    endif.
 
     data:
       mail               type ref to zcl_mail,
