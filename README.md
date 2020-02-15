@@ -12,7 +12,7 @@ Para que seja feito isso de forma a aproveitar os recursos, de acordo como são 
 As rotinas que hoje existem para chamada do `Smartforms` não foram alteradas ~~porque eu não sou obrigado fazer melhorias que estão fora do escope que estou atuando~~ para que não houvessem impactos em outras áreas. Algumas mensagens de tela, pode ser problema. Isso reforça uma nota que, as mensagens e log's devem ser tratados para execuções _online_ (o usuário executando e aguardando o resultado) e também devem ser tratadas quando há execuções em _background_. Envio do DANFE, em um arquivo PDF por e-mail.
 
 ### Informaćoes importantes ##
-Eu tentei encapsular a soluçao toda em uma classe criada na `SE24` mas por alguma limitacao da linguagem ou outro motivo ~~~ja que tudo é pra ontem, as vezes falta tempo de criar a melhor solucao~~, foi feito com uma classe local dentro de um report para que sejam alimentadas as informacoes da Tabela `NAST` *[Status da mensagem]*, conforme trecho abaixo.
+Eu tentei encapsular a solução toda em uma classe criada na `SE24` mas por alguma limitação da linguagem ou outro motivo ~~já que tudo é pra ontem, as vezes falta tempo de criar a melhor solução~~, foi feito com uma classe local dentro de um report para que sejam alimentadas as informações da Tabela `NAST` *[Status da mensagem]*, conforme trecho abaixo.
 
 ```abap
     free nast .
