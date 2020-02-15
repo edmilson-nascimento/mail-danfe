@@ -37,20 +37,20 @@ if ( doc_line is not initial ) .
       retcode, xscreen, it_job_output_info, it_lines, wa_pdf_string_x, it_pdf .
 
 *   Monta dados da Nast
-    free nast.
-    nast-kappl = tnapr_line-kappl .
-    nast-objky = doc_line-docnum .
-    nast-kschl = tnapr_line-kschl .
-    nast-spras = sy-langu .
-    nast-erdat = sy-datum .
-    nast-eruhr = sy-uzeit .
-    nast-nacha = 1 .
-    nast-anzal = 1 .
-    nast-vsztp = 1 .
-    nast-nauto = abap_on .
+    free nast .
+    nast-kappl = tnapr_line-kappl . " Aplicação para condições de mensagens
+    nast-objky = doc_line-docnum .  " Chave de objeto
+    nast-kschl = tnapr_line-kschl . " Tipo de mensagem
+    nast-spras = sy-langu .         " Idioma da mensagem
+    nast-erdat = sy-datum .         " Data da criação do registro de status
+    nast-eruhr = sy-uzeit .         " Status da mensagem
+    nast-nacha = 1 . " Meio de transmissão de uma mensagem (1	Saída de impressão)
+    nast-anzal = 1 . " Nº de mensagens (original + cópias)
+    nast-vsztp = 1 . " Momento do envio (1  Enviar através de jobs escalonados periodicamente)
+    nast-nauto = abap_on . " Mensagem determinada através das condições
 
-    NAST-DIMME = 'X' .
-    NAST-LDEST = 'ZPDF' .
+    nast-dimme = abap_on . " Saída imediata
+    nast-ldest = 'ZPDF' . " Spool: dispositivo de saída (valor temporariamente fixo)
 
 *   Chama o perform do programa a ser utilizado para impressão da DANFE
     perform ('ENTRY_CKPIT_SEM') in program (tnapr_line-pgnam) using retcode xscreen.
