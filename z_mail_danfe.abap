@@ -103,7 +103,7 @@ if ( doc_line is not initial ) .
         att_content_hex    = att_content_hex
     ).
 
-mail->send( recipient = 'nascimento@abapconsulting.com.br' ) .
+    mail->send( recipient = 'nascimento@abapconsulting.com.br' ) .
 
 
     free nast.
@@ -111,3 +111,4 @@ mail->send( recipient = 'nascimento@abapconsulting.com.br' ) .
   endif .
 
 endif.
+
