@@ -12,7 +12,7 @@ data:
   it_job_output_info type ssfcrescl,
   it_lines           type table of tline,
   wa_pdf_string_x    type xstring,
-  it_pdf             type solix_tab .
+  it_pdf             type solix_tab.
 
 
 * Seleciona o formulario das notas selecionadas
@@ -44,7 +44,7 @@ if ( doc_line is not initial ) .
     nast-spras = sy-langu .         " Idioma da mensagem
     nast-erdat = sy-datum .         " Data da criação do registro de status
     nast-eruhr = sy-uzeit .         " Status da mensagem
-    nast-nacha = 1 . " Meio de transmissão de uma mensagem (1	Saída de impressão)
+    nast-nacha = 1 . " Meio de transmissão de uma mensagem (1   Saída de impressão)
     nast-anzal = 1 . " Nº de mensagens (original + cópias)
     nast-vsztp = 1 . " Momento do envio (1  Enviar através de jobs escalonados periodicamente)
     nast-nauto = abap_on . " Mensagem determinada através das condições
@@ -63,28 +63,28 @@ if ( doc_line is not initial ) .
 *   Converte smartform OTF to PDF
     call function 'CONVERT_OTF'
       exporting
-        format                      = 'PDF'
-*       max_linewidth               = 132
-*       archive_index               = ' '
-*       copynumber                  = 0
-*       ascii_bidi_vis2log          = ' '
-*       pdf_delete_otftab           = ' '
-*       pdf_username                = ' '
-*       pdf_preview                 = ' '
-*       use_cascading               = ' '
-*       modified_param_table        =
+        format                = 'PDF'
+*       max_linewidth         = 132
+*       archive_index         = ' '
+*       copynumber            = 0
+*       ascii_bidi_vis2log    = ' '
+*       pdf_delete_otftab     = ' '
+*       pdf_username          = ' '
+*       pdf_preview           = ' '
+*       use_cascading         = ' '
+*       modified_param_table  =
       importing
-*       bin_filesize                =
-        bin_file                    = wa_pdf_string_x
+*       bin_filesize          =
+        bin_file              = wa_pdf_string_x
       tables
-        otf                         = it_job_output_info-otfdata
-        lines                       = it_lines
+        otf                   = it_job_output_info-otfdata
+        lines                 = it_lines
       exceptions
-        err_max_linewidth           = 1
-        err_format                  = 2
-        err_conv_not_possible       = 3
-        err_bad_otf                 = 4
-        others                      = 5 .
+        err_max_linewidth     = 1
+        err_format            = 2
+        err_conv_not_possible = 3
+        err_bad_otf           = 4
+        others                = 5.
 
     if ( sy-subrc eq 0 ) .
 
@@ -104,7 +104,6 @@ if ( doc_line is not initial ) .
     create object mail
       exporting
         obj_des = |E-mail - ABAP Development (Danfe { doc_line-docnum })|
-*       obj_des = |E-mail - ABAP Development (Danfe { sy-uzeit }|
         text    = text.
 
     att_content_hex = cl_bcs_convert=>xstring_to_solix( iv_xstring = wa_pdf_string_x ).
@@ -125,4 +124,3 @@ if ( doc_line is not initial ) .
   endif .
 
 endif.
-
