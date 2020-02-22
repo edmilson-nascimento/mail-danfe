@@ -118,7 +118,6 @@ if ( doc_line is not initial ) .
 
     mail->send( recipient = 'nascimento@abapconsulting.com.br' ) .
 
-
     free nast.
 
   endif .
