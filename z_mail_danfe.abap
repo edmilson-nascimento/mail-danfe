@@ -10,7 +10,6 @@ data:
   retcode            type sy-subrc,
   xscreen            type char1,
   otf                type ssfcrescl,
-* lines              type table of tline,
   lines              type fmlines,
   bin_file           type xstring,
   text               type soli_tab,
@@ -54,8 +53,8 @@ if ( sy-subrc eq 0 ) .
     nast-vsztp = 1 .                " Momento do envio (1  Enviar através de jobs escalonados periodicamente)
     nast-nauto = abap_on .          " Mensagem determinada através das condições
 
-    nast-dimme = abap_on . " Saída imediata
-    nast-ldest = 'ZPDF' . " Spool: dispositivo de saída (valor temporariamente fixo)
+    nast-dimme = abap_on .          " Saída imediata
+    nast-ldest = 'ZPDF' .           " Spool: dispositivo de saída (valor temporariamente fixo)
 
 *   Chama o perform do programa a ser utilizado para impressão da DANFE
     perform ('ENTRY_CKPIT_SEM') in program (tnapr_line-pgnam) using retcode xscreen .
