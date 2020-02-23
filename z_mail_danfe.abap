@@ -10,9 +10,9 @@ data:
   retcode            type sy-subrc,
   xscreen            type char1,
   otf                type ssfcrescl,
-  lines              type table of tline,
+* lines              type table of tline,
+  lines              type fmlines,
   bin_file           type xstring,
-*  pdf_tab            type solix_tab,
   text               type soli_tab,
 
   mail               type ref to zcl_mail,
@@ -107,6 +107,8 @@ if ( sy-subrc eq 0 ) .
 
         text = value #( ( line = 'Message mail.' ) ) .
 
+        mail = new zcl_mail( obj_des = |E-mail - ABAP Development (Danfe { doc_line-docnum })| text = text ) .
+
         create object mail
           exporting
             obj_des = |E-mail - ABAP Development (Danfe { doc_line-docnum })|
@@ -123,7 +125,6 @@ if ( sy-subrc eq 0 ) .
         ).
 
         mail->send( recipient = 'nascimento@abapconsulting.com.br' ) .
-
 
         free nast.
 
