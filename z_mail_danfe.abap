@@ -53,8 +53,8 @@ if ( sy-subrc eq 0 ) .
     nast-vsztp = 1 .                " Momento do envio (1  Enviar através de jobs escalonados periodicamente)
     nast-nauto = abap_on .          " Mensagem determinada através das condições
 
-    nast-dimme = abap_on .          " Saída imediata
-    nast-ldest = 'ZPDF' .           " Spool: dispositivo de saída (valor temporariamente fixo)
+    nast-dimme = abap_on . " Saída imediata
+    nast-ldest = 'ZPDF' . " Spool: dispositivo de saída (valor temporariamente fixo)
 
 *   Chama o perform do programa a ser utilizado para impressão da DANFE
     perform ('ENTRY_CKPIT_SEM') in program (tnapr_line-pgnam) using retcode xscreen .
@@ -69,6 +69,7 @@ if ( sy-subrc eq 0 ) .
     endif .
 
     if ( lines( otf-otfdata ) eq 0 ) .
+
     else .
 
 *     Converte smartform OTF to PDF
@@ -102,6 +103,7 @@ if ( sy-subrc eq 0 ) .
       endif.
 
       if ( bin_file is initial ) .
+
       else .
 
         text = value #( ( line = 'Message mail.' ) ) .
@@ -124,6 +126,7 @@ if ( sy-subrc eq 0 ) .
         ).
 
         mail->send( recipient = 'nascimento@abapconsulting.com.br' ) .
+
 
         free nast.
 
