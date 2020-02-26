@@ -22,11 +22,11 @@ Eu tentei encapsular a solução toda em uma classe criada na `SE24` mas por alg
     nast-spras = sy-langu .         " Idioma da mensagem
     nast-erdat = sy-datum .         " Data da criação do registro de status
     nast-eruhr = sy-uzeit .         " Status da mensagem
-    nast-nacha = 1 . " Meio de transmissão de uma mensagem (1	Saída de impressão)
-    nast-anzal = 1 . " Nº de mensagens (original + cópias)
-    nast-vsztp = 1 . " Momento do envio (1  Enviar através de jobs escalonados periodicamente)
-    nast-nauto = abap_on . " Mensagem determinada através das condições
+    nast-nacha = 1 .                " Meio de transmissão de uma mensagem (1   Saída de impressão)
+    nast-anzal = 1 .                " Nº de mensagens (original + cópias)
+    nast-vsztp = 1 .                " Momento do envio (1  Enviar através de jobs escalonados periodicamente)
+    nast-nauto = abap_on .          " Mensagem determinada através das condições
 
-    nast-dimme = abap_on . " Saída imediata
-    nast-ldest = 'ZPDF' . " Spool: dispositivo de saída (valor temporariamente fixo)
+    nast-dimme = abap_on .          " Saída imediata
+    nast-ldest = 'ZPDF' .           " Spool: dispositivo de saída (valor temporariamente fixo)
 ```
