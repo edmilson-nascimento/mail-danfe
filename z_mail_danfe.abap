@@ -127,7 +127,6 @@ if ( sy-subrc eq 0 ) .
 
         mail->send( recipient = 'nascimento@abapconsulting.com.br' ) .
 
-
         free nast.
 
       endif .
